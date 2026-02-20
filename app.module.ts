@@ -7,8 +7,10 @@ import { WorkspacesModule } from './workspaces/workspaces.module';
 import { ComplianceModule } from './compliance/compliance.module';
 import { BillingModule } from './billing/billing.module';
 import { QueueModule } from './queue/queue.module';
+import { HealthController } from './health.controller';
 
 @Module({
+  controllers: [HealthController],
   imports: [
     // ── Config (loads .env) ────────────────────────────────
     ConfigModule.forRoot({
