@@ -23,7 +23,6 @@ function getModel(): GenerativeModel {
     _model = genAI.getGenerativeModel({
       model: GEMINI_MODEL,
       generationConfig: {
-        responseMimeType: 'application/json', // Force structured output
         temperature: 0.2, // Low temp for deterministic compliance output
       },
     });

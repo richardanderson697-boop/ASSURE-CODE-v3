@@ -15,7 +15,7 @@ export class BillingService {
     private readonly supabase: SupabaseService,
   ) {
     this.stripe = new Stripe(this.config.getOrThrow<string>('STRIPE_SECRET_KEY'), {
-      apiVersion: '2024-09-30.acacia',
+      apiVersion: '2023-10-16',
     });
   }
 
