@@ -3,7 +3,8 @@ import {
   Logger,
   NotFoundException,
   ForbiddenException,
-  PaymentRequiredException,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import { Queue } from 'bull';
@@ -42,8 +43,9 @@ export class ComplianceService {
     );
 
     if (!allowed) {
-      throw new PaymentRequiredException(
+      throw new HttpException(
         `Monthly report limit reached (${used}/${limit}). Upgrade your plan to continue.`,
+        HttpStatus.PAYMENT_REQUIRED,
       );
     }
 
